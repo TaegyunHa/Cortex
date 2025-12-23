@@ -2,6 +2,18 @@
 
 [[references]]
 
+## Disable showing group thumbnail in taskbar
+
+```
+Settings > System > Multi-tasking > Snap windows > Show my snapped windows when I hover over taskbar apps, in Task VIew, and when I press Alt+Tab
+```
+
+## Disable Animation Effect
+
+```
+Settings > Accessibility > Visual effects > Animation effects
+```
+
 ## Disable F1 Opening Help
 
 > [Source Link](https://www.winhelponline.com/blog/disable-f1-key-help-windows-10/)
