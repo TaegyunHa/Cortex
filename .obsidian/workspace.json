@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "programming/windows-references.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "windows-references"
             }
           }
         ]
@@ -183,10 +183,19 @@
       "bases:Create new base": false
     }
   },
-  "active": "377a63c39c463567",
+  "active": "870da3d860b098f2",
   "lastOpenFiles": [
-    "Welcome.md",
+    "programming/claude-code-references.md",
+    "programming/windows-references.md",
+    "programming/vim-cheatsheet.md",
+    "programming/tmux-cheatsheet.md",
+    "programming/git-references.md",
+    "programming/tmux.md",
     "README.md",
+    "programming/vim.md",
+    "programming",
+    "books",
+    "Welcome.md",
     "create a link.md",
     "Untitled 1.canvas",
     "Untitled.canvas"
