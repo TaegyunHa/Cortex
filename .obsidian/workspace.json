@@ -13,15 +13,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "programming/git-references.md",
+                "file": "programming/windows-references.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "git-references"
+              "title": "windows-references"
+            }
+          },
+          {
+            "id": "ada7906920a4d921",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "programming/linux-references.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "linux-references"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -78,8 +93,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 222.5,
-    "collapsed": true
+    "width": 222.5
   },
   "right": {
     "id": "f63985df27c81d20",
@@ -184,12 +198,13 @@
       "bases:Create new base": false
     }
   },
-  "active": "870da3d860b098f2",
+  "active": "ada7906920a4d921",
   "lastOpenFiles": [
-    "programming/vim-cheatsheet.md",
     "programming/windows-references.md",
-    "programming/tmux-cheatsheet.md",
+    "programming/linux-references.md",
     "programming/git-references.md",
+    "programming/vim-cheatsheet.md",
+    "programming/tmux-cheatsheet.md",
     "programming/claude-code-references.md",
     "programming/tmux.md",
     "README.md",
