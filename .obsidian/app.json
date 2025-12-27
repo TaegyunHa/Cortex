@@ -1,1 +1,6 @@
-{}
+{
+  "attachmentFolderPath": "x",
+  "newFileLocation": "folder",
+  "newFileFolderPath": "+",
+  "alwaysUpdateLinks": true
+}

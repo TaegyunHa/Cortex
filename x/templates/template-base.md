@@ -1,0 +1,4 @@
+---
+related: "[[New]]"
+created: "{{date}}"
+---

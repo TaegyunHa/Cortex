@@ -1,3 +1,8 @@
+---
+related:
+  - "[[PC]]"
+created: 2025-12-27
+---
 # Tools
 
 [[references]]

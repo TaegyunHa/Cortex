@@ -4,53 +4,67 @@
     "type": "split",
     "children": [
       {
-        "id": "699e41d5304cc77a",
+        "id": "1e27bdc3ee57461e",
         "type": "tabs",
         "children": [
           {
-            "id": "870da3d860b098f2",
+            "id": "f8cc6ac30f2b32dd",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "programming/windows-references.md",
+                "file": "Atlas/programming/windows-reference.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "windows-references"
+              "title": "windows-reference"
             }
           },
           {
-            "id": "ada7906920a4d921",
+            "id": "24d4c85cf73f9e68",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "programming/windows-references.md",
+                "file": "+/regex-reference.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "windows-references"
+              "title": "regex-reference"
             }
           },
           {
-            "id": "2d2444cb0eb51155",
+            "id": "664eb65d4508f742",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "programming/tools.md",
+                "file": "x/templates/template-base.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "tools"
+              "title": "template-base"
+            }
+          },
+          {
+            "id": "6d4475fe3127bb47",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "+/regex-reference.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "regex-reference"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -107,7 +121,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 222.5
+    "width": 222.5,
+    "collapsed": true
   },
   "right": {
     "id": "f63985df27c81d20",
@@ -212,23 +227,37 @@
       "bases:Create new base": false
     }
   },
-  "active": "377a63c39c463567",
+  "active": "6d4475fe3127bb47",
   "lastOpenFiles": [
-    "programming/windows-references.md",
-    "programming/tools.md",
-    "programming/linux-references.md",
-    "programming/git-references.md",
-    "programming/vim-cheatsheet.md",
-    "programming/tmux-cheatsheet.md",
-    "programming/claude-code-references.md",
+    "Atlas/Map/PC.md",
+    "Atlas/programming/windows-reference.md",
+    "Atlas/programming/vim-cheatsheet.md",
+    "Atlas/programming/tools.md",
+    "Atlas/programming/tmux-cheatsheet.md",
+    "Atlas/programming/linux-reference.md",
+    "Atlas/programming/git-reference.md",
+    "Atlas/programming/claude-code-reference.md",
+    "Atlas/Map/AI.md",
+    "Atlas/Map/Programming.md",
+    "Atlas/Map/New.md",
+    "x/templates/template-base.md",
+    "Atlas/Map",
+    "Atlas",
+    "+/regex-reference.md",
+    "x/templates",
+    "Untitled.md",
+    "x",
+    "+",
+    "Untitled.canvas",
+    "2025-12-26.md",
+    "Untitled.base",
     "programming/tmux.md",
     "README.md",
     "programming/vim.md",
-    "programming",
+    "Atlas/programming",
     "books",
     "Welcome.md",
     "create a link.md",
-    "Untitled 1.canvas",
-    "Untitled.canvas"
+    "Untitled 1.canvas"
   ]
 }

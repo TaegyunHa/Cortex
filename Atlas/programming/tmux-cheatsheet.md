@@ -1,3 +1,8 @@
+---
+related:
+  - "[[Programming]]"
+created: 2025-12-27
+---
 # tmux
 
 [[cheatsheet]] [[references]]

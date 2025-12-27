@@ -1,4 +1,9 @@
-# Windows References
+---
+related:
+  - "[[PC]]"
+created: 2025-12-27
+---
+# Windows Reference
 
 [[references]]
 

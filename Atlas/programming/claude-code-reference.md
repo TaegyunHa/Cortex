@@ -1,4 +1,10 @@
-# Cluade Code References
+---
+related:
+  - "[[Programming]]"
+  - "[[AI]]"
+created: 2025-12-27
+---
+# Cluade Code Reference
 
 [[references]]
 

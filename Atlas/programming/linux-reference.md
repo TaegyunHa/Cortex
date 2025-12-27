@@ -1,4 +1,9 @@
-# Linux References
+---
+related:
+  - "[[Programming]]"
+created: 2025-12-27
+---
+# Linux Reference
 
 [[references]]
 
