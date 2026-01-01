@@ -4,67 +4,34 @@
     "type": "split",
     "children": [
       {
-        "id": "1e27bdc3ee57461e",
+        "id": "ed37a2031dfd2f2d",
         "type": "tabs",
         "children": [
           {
-            "id": "f8cc6ac30f2b32dd",
+            "id": "e76566650145dee6",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Atlas/programming/windows-reference.md",
+                "file": "Atlas/programming/langgraph/langgraph-essential.md",
                 "mode": "source",
-                "source": false
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
               },
               "icon": "lucide-file",
-              "title": "windows-reference"
-            }
-          },
-          {
-            "id": "24d4c85cf73f9e68",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "+/regex-reference.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "regex-reference"
-            }
-          },
-          {
-            "id": "664eb65d4508f742",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "x/templates/template-base.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "template-base"
-            }
-          },
-          {
-            "id": "6d4475fe3127bb47",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "+/regex-reference.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "regex-reference"
+              "title": "langgraph-essential"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -121,7 +88,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 222.5
+    "width": 311.5
   },
   "right": {
     "id": "f63985df27c81d20",
@@ -137,7 +104,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Welcome.md",
+                "file": "Atlas/programming/langgraph/langgraph-essential.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,7 +114,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Welcome"
+              "title": "Backlinks for langgraph-essential"
             }
           },
           {
@@ -212,8 +179,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -226,8 +192,24 @@
       "bases:Create new base": false
     }
   },
-  "active": "6d4475fe3127bb47",
+  "active": "e76566650145dee6",
   "lastOpenFiles": [
+    "Atlas/Map/AI.md",
+    "Atlas/programming/langgraph/langgraph-essential.md",
+    "Atlas/programming/claude-code-reference.md",
+    "Atlas/programming/langgraph/langgraph-example-memory.md",
+    "Atlas/programming/langgraph/langgraph-example-interrupt.md",
+    "Atlas/programming/langgraph/langgraph-example-edge.md",
+    "Atlas/programming/langgraph/langgraph-example-conditional-edge.md",
+    "x/prompts/summary-instruction.md",
+    "x/prompts",
+    "Atlas/programming/langgraph/summary.md",
+    "Atlas/Map/Programming.md",
+    "x/templates/template-base.md",
+    "+/Untitled.md",
+    "x/attachments/langgraph-memory.png",
+    "x/attachments",
+    "+/regex-reference.md",
     "Atlas/Map/PC.md",
     "Atlas/programming/windows-reference.md",
     "Atlas/programming/vim-cheatsheet.md",
@@ -235,14 +217,9 @@
     "Atlas/programming/tmux-cheatsheet.md",
     "Atlas/programming/linux-reference.md",
     "Atlas/programming/git-reference.md",
-    "Atlas/programming/claude-code-reference.md",
-    "Atlas/Map/AI.md",
-    "Atlas/Map/Programming.md",
     "Atlas/Map/New.md",
-    "x/templates/template-base.md",
     "Atlas/Map",
     "Atlas",
-    "+/regex-reference.md",
     "x/templates",
     "Untitled.md",
     "x",
@@ -252,11 +229,8 @@
     "Untitled.base",
     "programming/tmux.md",
     "README.md",
-    "programming/vim.md",
     "Atlas/programming",
     "books",
-    "Welcome.md",
-    "create a link.md",
     "Untitled 1.canvas"
   ]
 }

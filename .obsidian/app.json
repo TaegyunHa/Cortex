@@ -1,6 +1,7 @@
 {
-  "attachmentFolderPath": "x",
+  "attachmentFolderPath": "x/attachments",
   "newFileLocation": "folder",
   "newFileFolderPath": "+",
-  "alwaysUpdateLinks": true
+  "alwaysUpdateLinks": true,
+  "useTab": false
 }
