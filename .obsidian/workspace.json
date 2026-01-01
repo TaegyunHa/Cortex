@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Atlas/programming/langgraph/langgraph-essential.md",
-                "mode": "preview",
+                "file": "+/init.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "langgraph-essential"
+              "title": "init"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Atlas/programming/langgraph/langgraph-essential.md",
+                "file": "+/init.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for langgraph-essential"
+              "title": "Backlinks for init"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Atlas/programming/langgraph/langgraph-essential.md",
+                "file": "+/init.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of langgraph-essential"
+              "title": "Outline of init"
             }
           }
         ],
@@ -185,31 +185,31 @@
   },
   "active": "e76566650145dee6",
   "lastOpenFiles": [
-    "Atlas/programming/langgraph/langgraph-example-email-agent.md",
+    "Atlas/programming/windows-reference.md",
+    "Atlas/programming/vim-cheatsheet.md",
+    "Atlas/programming/tools.md",
+    "Atlas/programming/tmux-cheatsheet.md",
+    "Atlas/programming/regex-reference.md",
+    "Atlas/programming/linux-reference.md",
+    "Atlas/programming/git-reference.md",
+    "Atlas/programming/claude-code-reference.md",
+    "x/templates/template-base.md",
+    "+/init.md",
     "Atlas/programming/langgraph/langgraph-essential.md",
+    "Atlas/programming/langgraph/langgraph-example-email-agent.md",
     "Atlas/programming/langgraph/langgraph-example-edge.md",
     "Atlas/programming/langgraph/langgraph-example-memory.md",
     "Atlas/programming/langgraph/langgraph-example-interrupt.md",
     "Atlas/programming/langgraph/langgraph-example-conditional-edge.md",
     "Atlas/Map/code-example.md",
     "Atlas/Map/AI.md",
-    "Atlas/programming/claude-code-reference.md",
     "x/prompts/summary-instruction.md",
     "x/prompts",
     "Atlas/programming/langgraph/summary.md",
     "Atlas/Map/Programming.md",
-    "x/templates/template-base.md",
-    "+/Untitled.md",
     "x/attachments/langgraph-memory.png",
     "x/attachments",
-    "+/regex-reference.md",
     "Atlas/Map/PC.md",
-    "Atlas/programming/windows-reference.md",
-    "Atlas/programming/vim-cheatsheet.md",
-    "Atlas/programming/tools.md",
-    "Atlas/programming/tmux-cheatsheet.md",
-    "Atlas/programming/linux-reference.md",
-    "Atlas/programming/git-reference.md",
     "Atlas/Map/New.md",
     "Atlas/Map",
     "Atlas",

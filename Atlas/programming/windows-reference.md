@@ -1,11 +1,10 @@
 ---
 related:
   - "[[PC]]"
+  - "[[references]]"
 created: 2025-12-27
 ---
 # Windows Reference
-
-[[references]]
 
 ## Disable showing group thumbnail in taskbar
 

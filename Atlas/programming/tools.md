@@ -1,11 +1,10 @@
 ---
 related:
   - "[[PC]]"
+  - "[[references]]"
 created: 2025-12-27
 ---
 # Tools
-
-[[references]]
 
 Collection of useful tools
 

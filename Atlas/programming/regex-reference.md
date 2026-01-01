@@ -1,6 +1,7 @@
 ---
 related:
   - "[[Programming]]"
+  - "[[references]]"
 created: 2025-12-27
 ---
 # Regex Reference
@@ -9,14 +10,14 @@ created: 2025-12-27
 
 ### Character classes
 
-| Patterns | Description                  |
-| -------- | ---------------------------- |
-| `.`      | any character except newline |
-| `\w\d\s` | word, digit, whitespace      |
-| `\W\D\S` | not word, digit, whitespace  |
-| `[abc]`  | any of a, b, or c            |
-| `[^abc]` | not a, b, or c               |
-| `[a-g]`  | character between a & g      |
+| Patterns       | Description                  |
+| -------------- | ---------------------------- |
+| `.`            | any character except newline |
+| `\w` `\d` `\s` | word, digit, whitespace      |
+| `\W` `\D` `\S` | not word, digit, whitespace  |
+| `[abc]`        | any of a, b, or c            |
+| `[^abc]`       | not a, b, or c               |
+| `[a-g]`        | character between a & g      |
 
 ### Anchors
 

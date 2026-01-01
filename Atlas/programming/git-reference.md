@@ -1,11 +1,10 @@
 ---
 related:
   - "[[Programming]]"
+  - "[[references]]"
 created: 2025-12-27
 ---
 # Git Reference
-
-[[references]]
 
 ## SSH
 

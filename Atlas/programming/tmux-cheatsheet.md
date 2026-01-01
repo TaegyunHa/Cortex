@@ -1,11 +1,11 @@
 ---
 related:
   - "[[Programming]]"
+  - "[[cheatsheet]]"
+  - "[[references]]"
 created: 2025-12-27
 ---
 # tmux
-
-[[cheatsheet]] [[references]]
 
 ## Install
 

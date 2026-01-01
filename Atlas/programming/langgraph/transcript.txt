@@ -1,0 +1,377 @@
+=============================================
+File: LCA_LGEssentials_Python_M1_L0_V1_Intro.txt
+=============================================
+
+Speaker: [00:00:00] Welcome to LangGraph Essentials. Thank you for joining the course. LangGraph is a framework that provides a durable runtime for AI agents and applications. In this course, you're going to learn the building blocks of LangGraph, and then you'll build an agent. But first, why use LangGraph? Well, in a recent blog post, we outlined why and how we built LangGraph.
+
+We had observed that it was easy to get started building AI applications, but that they were hard to customize and scale. Our top goal was to make LangGraph the framework that you'd use to run your agents in production. We began by identifying the unique challenges associated with writing applications that utilize LLMs.
+
+We identified three things, latency, reliability, and the non-deterministic nature of LLM responses. Here's how LangGraph addresses [00:01:00] these. Firstly, latency. LLMs have very long latencies, sometimes in seconds versus milliseconds. Current reasoning models can take even longer. LangGraph can't make the models faster, but we can improve things in two ways.
+
+LangGraph supports parallel execution of tasks. If you have N tasks, and run them in parallel, you can reduce latency by a factor of N. The second is streaming. Often in interactive applications, the metric you are most concerned with is time to first return token. So LangGraph support streaming, getting tokens to the user as soon as they are available.
+
+A second issue is reliability. Long running agents can fail. Failure of a process that has run for a few milliseconds is not a big problem. But, when an agent that has been running for minutes or even longer fails, it is expensive and time [00:02:00] consuming to rerun it. To address potential failures, LangGraph includes checkpointing.
+
+LangGraph saves the state of the application at each step. A restarted application can then resume exactly where it left off. As you'll see in this course, checkpointing and maintaining state are prominent themes in LangGraph. The third issue that we identified is that LLMs have variable responses.
+
+LLMs produce different results each time they're called. Further, different models produce different results, and models are replaced over time. For some applications, this will necessitate human approvals, and in all cases, rigorous evaluation and testing. LangGraph implements a human in the loop interface that suspends the agent to await human input.
+
+It also supports tracing and evaluation using LangSmith. So, these features, [00:03:00] parallel operation, streaming, checkpointing, human in the loop and support for tracing and evaluation are the reasons that you should learn to use LangGraph. Let's talk about the LangChain ecosystem and where LangGraph fits in.
+
+LangGraph has several components. It has an underlying runtime on top of which there are two user SDKs. The one that we'll focus on is StateGraph, the familiar graph Interface. This is often just referred to as LangGraph. 
+
+Support for LLMs, tools and many other components is supplied by the LangChain Library. Your application runs on top of these. It can be hosted by LangSmith Deployment. And Studio and LangSmith provide useful debugging, evaluation and testing capabilities. 
+
+In the remainder of the course, you're going to start by learning LangGraph basics, states, nodes, and edges. You'll build up examples that illustrate the [00:04:00] roles of each of these components. Having mastered these basics, you'll go on to build an application in LangGraph. We should point out that this is LangGraph Essentials. If you want to explore topics in more depth, Lang Chain Academy offers a comprehensive course on LangGraph that goes into greater detail and covers additional topics. 
+
+
+
+=============================================
+File: LCA_LGEssentials_Python_M1_L1_V1_Nodes.txt
+=============================================
+
+[00:00:00] 
+
+Caspar: LangGraph is incredibly flexible. In fact, you can think of it as a programming language. I like to use these analogies to describe its key components. First of all, state is the data that flows through the graph. Then nodes are simply functions that operate on the data. Edges provide control flow. These edges can be static or conditional, and they can run in parallel or in series, just like logical branches in a program. And state can be persisted with checkpointing. Finally, control flow can be interrupted and resumed to allow for neat things like human in the loop.
+
+StateGraph, as the name implies, has state and a graph. State is simply data as we just explored. It is supplied to the graph, is updated by the graph and returned to the user. The graphs themselves are stateless. When defining a graph, you first [00:01:00] define the state that the graph will operate on. This state is shared by all nodes in the graph.
+
+And state is typically a Python data structure. In our example, we'll use a typed dictionary with a single field, which is just a list of strings. So when a graph is invoked, state is initialized. During execution of the graph, the LangGraph runtime will select a node to execute, and then it will supply it with the current state, it will run the node, and then finally it will update the state
+
+with the results from the node. A node is really just a function. You can see its primary argument here is state and its output is an update to state. Here, it's an update to our list of strings. State can be persisted across time and in particular across failures of nodes. So if, for example, a node were to fail during execution, it could be restarted, the state could be restored, [00:02:00] and the function could be run again from the beginning.
+
+This requires some assistance from the underlying platform to detect failures, but persisting state is a key feature of LangGraph that enables your applications to be more resilient. All right, now let's go to your notebook and create your first graph.
+
+Okay, welcome to your first lab. We're just going to cover states and nodes, and we'll build this graph on the right that has a single node. So first I'm just going to import the necessary modules. All the code for these tutorials will be provided, so you can follow along if you'd like by running the Jupyter Notebook in your own IDE. I'm running mine using the VS Code Jupyter notebook extension, or you can just run them in the convenient Jupyter Web UI. 
+
+Let's get started. So the first thing that you want to do when creating a graph is define the state. So I'm going to define class state to be of type dictionary. It's going to have one parameter, which will be nlist, which will be a list of type [00:03:00] string.
+
+All right. Oops, spelling out of that. So state can also be a Python data class or a Pydantic base model. I just prefer type dictionaries for simplicity in this case. Next we're going to define a node. A node takes state in and then returns an update to state. Nodes are really just functions. So we will define node A to take in our state, return an update to state, and then that update will be the new string. Hello World from Node A. And we will return a state instance where nlist is set to a list that contains our new string.
+
+And we'll also add a debug log here so we can see the state that the node is receiving when it's first run. So node A is receiving[00:04:00] 
+
+nlist Beautiful.
+
+Next up, we're going to want to build our graph. So to do this we can, instantiate a StateGraph object with our state.
+
+And then we need to add the node that we just created. We'll call this node A and we'll add our function node_a, and then we'll add an edge from START to A. Start in this case, it's just a constant that we've imported from LangGraph. Then we will add an edge from A to END. These are these two edges just here.
+
+And finally we will compile our graph. So graph we'll set it to equal builder dot compile. Beautiful. 
+
+So you can actually display this [00:05:00] graph. Make sure we've done everything correctly, using LangGraph's draw mermaid utilities. So let's go display. We're going to display an image. We're going to get the graph representation of our graph, and then call the draw_mermaid_png function on it. And if everything goes right, there we go.
+
+We see the graph on the right. So this is actually an image that we're rendering in our notebook. But if you wanted to get the code to generate this mermaid diagram directly, then you can just call the draw mermaid method. So graph dot get graph draw mermaid. There we go. You can paste this into the mermaid web editor or embed it in your website wherever you like.
+
+And you have a graph. Set it back to the image for now. Finally, we can run the graph with an initial state. So we'll set this initial state variable to be a state where nlist is, [00:06:00] let's say. Hello Node a, how are you? And then we're going to simply invoke the graph with this initial state.
+
+Okay, so we can see that node A prints, what it saw coming in, which is the initial value we set for state. Hello Node a, how are you? And then when we invoke the graph, it returns the updated state. Note that nlist is overwritten with the new note. Hello World from Node a. We set up above here.
+
+Okay, so what are the takeaways? Well, when defining a graph, and defining state, we know that all nodes can share the same state. State can be a type dictionary, can be a Python data class or a Pydantic base model. We've also seen that nodes are just functions. Then when executing a graph, we've seen how the LangGraph runtime
+
+initializes the input state from the invoke statement and how it provides nodes [00:07:00] with state as an input. We've seen how nodes are executed and how they update state with their return value, and we know that graphs return the final value of state when it finishes executing in this case. So some things to try next.
+
+Well, you should add another node, should modify the initial state message and maybe even add another value to state. 'cause it doesn't just have to be one value. Great. Next up we're going to explore control flow in LangGraph, learning how we can control the order of node executions in a graph, and also touch on how we can influence the way that state is updated.
+
+
+
+=============================================
+File: LCA_LGEssentials_Python_M1_L2_V1_Edges.txt
+=============================================
+
+[00:00:00] 
+
+Caspar: Okay, so we've just learned about states and nodes. Now the other key component here is edges. So an edge passes control from one node to the next. In the serial case, at the end of the first step, the LangGraph runtime will initialize and run that second node. In the parallel case, all three of the following nodes will actually be run in parallel.
+
+Because multiple steps can be run simultaneously, these steps from node to node are called Super Steps. We'll cover this concept in more detail in a few minutes. But for now it's helpful to remember the term. So the examples that we've just looked at on the left are static edges, which means they'll always be taken.
+
+Moving over to the right here, we have conditional edges, which are rendered as dashed lines. Conditional edges are really powerful because they allow for decision making, where control is passed to a node based on a condition. Here, the condition allowed the left edge to be taken and for this node to execute while the right edge was not taken. So the right node did not [00:01:00] execute. A special case of a conditional edge is MapReduce, where a variable number of downstream nodes are created and each passed a unique value.
+
+Now, we described the idea of a Super Step, where all active nodes in a step have completed and stored their values to state before continuing on to the next node. Here, the input state to the orange node is the result of all of the updates by the blue nodes. But what about situations like these where paths are different lengths?
+
+Well, LangGraph allows you to specify when the right hand node executes. Normally right hand nodes would activate when the green node finishes. Its output is then available as an input to the purple node. Well, you can also defer execution so that the right hand node outputs are added to the state in the same super step as the purple node.
+
+Let's take a closer look at parallel execution and writing to state. Recall that at the beginning of this step, nodes are [00:02:00] provided with the current state, and after they execute, they will update the shared state. But what happens when all the nodes return an update to the nlist property of our state?
+
+Well, by default, the value written last would overwrite the previous state, as we saw in our very first lab. To solve this, we can introduce the reducer function. The name comes from the general term MapReduce, and this special function allows us to define how we want to handle many writes to the same state key.
+
+When state values are updated at the end of node execution, LangGraph can use the provided reducer function for that key to decide how state should be updated. In our example, the values are appended to a list rather than simply overwriting the previous value because we've set our reducer function to be operator dot add.
+
+Now this reducer function is actually up for you to define, and you can even create your own custom reducer. To accomplished this, we've annotated the state variables when defining the state. And the syntax is shown. The first [00:03:00] argument is the type of this variable while the second is the metadata, and LangGraph uses that to specify the reducer operation.
+
+Okay, let's take a breather and try out what we've learned in a lab.
+
+Okay, welcome to your second lab where we'll be exploring edges and parallel execution. So this is the diagram that we just saw in the slides where you have three nodes that all execute in parallel. This is the graph that we're going to be building in this lab. I'll explain the extra nodes in a minute, but note that there are two distinct branches, and we're going to see some parallel execution of nodes.
+
+And understand why and how state updates occur in these circumstances. So first, let's import the necessary modules. Now we will recreate the same state that we defined in the previous lab, where nlist is a list of strings. Except this time we will introduce a reducer. We'll use the syntax that we just learned, this annotated syntax.
+
+We'll use operator dot [00:04:00] add as the reducer function. This will concatenate all list updates into state instead of overwriting the previous value.
+
+Now we'll define the nodes. Each node will receive state, print its name and input, and return its own label as an update to nlist.
+
+And now we're going to build the graph. So first we instantiate StateGraph with our state. Then we're going to add the nodes that we just defined. Next, we'll add edges. So we add one from START to A, from A to B, A to C, B to BB, C to CC, BB to D, CC to D and D to END. Then finally, we compile this graph, and then we display it using the Draw Mermaid function that we saw earlier.
+
+So you see that we've generated the same graph that we can [00:05:00] observe on the right. Now, let's execute it. We'll provide an initial state to invoke the graph with, which will just be a list with a single string. Initial String.
+
+So let's break down this execution. Firstly, node A runs and adds A. You can see that when node A ran, the only state that it observed was the initial state that we passed in when we invoked the graph. No other nodes had added their labels to it. This is because it is first in the order of execution. So then nodes C and B execute within the same super step.
+
+We can tell because they both observed the same state when they run, which means that one couldn't have ran before the other. And now BB executes and CC executes the next super step. But, [00:06:00] we can observe that they both can see the state updates from nodes B and C. So pay attention here because this behavior highlights an important feature in LangGraph. Edges define control flow, but they do not control the data that nodes have access to.
+
+So when a node runs, it will have access to the current graph state, even if this state includes values written on parallel branches. So in other words, BB has access to state updates made by node B, but also by node C. Similarly, CC has access to state updates made by node B and node C. As well as node A for both of those cases.
+
+So we can see that nodes BB and CC add their labels to the state. And when D runs it has received the state with all prior additions, it adds D. And finally, the graph returns the [00:07:00] final merged state list that contains the labels of all of the nodes. 
+
+So what are the takeaways? Well, when setting up state, we've learned that you can use a reducer function in the state definition to influence how state is accumulated.
+
+When building your graph, you can use add edge to create a parallel path. During execution, nodes B and C execute in parallel. Our graph uses the reducer function to merge the values returned from each node, then the results from nodes B and C store to state before starting nodes BB and CC. So as we stated,
+
+control follows edges, data does not. Some things for you to try next. I would suggest adding a third parallel path, and maybe rather than joining at D, have BB and CC pass control to END, see if the values are [00:08:00] still merged. So we've done a pretty deep dive into static edges. In the next lab, we'll explore conditional edges.
+
+
+
+=============================================
+File: LCA_LGEssentials_Python_M1_L3_V1_ConditionalEdges.txt
+=============================================
+
+[00:00:00] 
+
+
+
+So in lab three we're going to be exploring conditional edges. You should recall this diagram from the slides where we have conditional edge that either branches to the left node or the right node, depending on a condition. In this lab, we're going to be generating this graph here. Recall that the dashed lines represent conditional edges, whereas the solid lines represent the static edges.
+
+Caspar: That we are used to defining from labs one and lab two. So let's get started. Going to import the necessary modules. State will be the same as last time where we're using the annotated syntax to accumulate updates to state, instead of overwriting whatever was previously written. Now in the previous lab, we defined static edges between nodes, but this time we'll let our graph dynamically decide which edges to take.
+
+So we'll define three nodes, node A, [00:01:00] node B, and node C. Node A will just return, won't make any updates to state. Node B will add its label to state, and node C will also add its label to state.
+
+So now let's build the graph. We instantiate StateGraph with our state. We add our nodes. Then we add an edge from start to A, from B to end, and from C to end. Then finally, we compile and display our graph using the Draw Mermaid PNG function that we're used to.
+
+You can see here that the graph looks a bit funky, and that's because we haven't defined any static edges into or out of nodes B and node C. That's because I want there to be conditional edges from A to end, A to B and A to C. And I can define them with a conditional edge function that takes in state and returns a string, which is the node that we want to branch to next.
+
+So let me go ahead and [00:02:00] define that above.
+
+So you can see we've defined conditional edge that receives the graph state and returns a literal, which is either B or C or END, which if you recall, is it constant that we've imported from LangGraph that is the reserved node label for end. So the logic in this conditional edge function simply takes the last value that was written to state.
+
+If it was B, we branch to node B. If it was C, we branch to node C. If it was Q, we branch to to node end. Otherwise there's a catch and we return to end. Now you can add conditional edges when building your graph by using the add conditional edges syntax.
+
+So we'll add a conditional edge from A, and then we'll link our conditional edge function. We can see [00:03:00] that if we render this graph, it's correctly identified and drawn the conditional edges. So let's test out this conditional branching logic. I've written some code here that takes an input from the user and then creates an input state using this input and then invokes the graph with that state.
+
+So if we look at our conditional edge logic, if we type B, we should go to node B, and then end C, we should go to C and end. But if we type Q or anything else, we should go directly to end. Let's test this out. I'll first type B. We can see that we've gone to node B, C, we can see that we've gone to node C.
+
+If I type Q, then we haven't visited any of these nodes. We've just gone directly to end.
+
+We've just seen how you can define conditional edges with add conditional edges. Well, let me introduce [00:04:00] you to a way of achieving conditional branching using LangGraph's built in command types. So let's go back to our node A definition. What if we want node A to make the selection of which node to visit next instead of using a dynamic edge function? Well,
+
+we can change node A as such.
+
+And now the selection logic is bundled in to node A. We receive the graph state and we select based on the last value written to state. If it's B, we go to node B. If it's C, we go to node C, Q, we go to end, otherwise we go to end. Now here's the new part. Rather than just returning a value to update the state, we're going to return a command.
+
+A command allows you to update state as before and specify the next node that the graph should jump to. In this case, we're [00:05:00] updating the state by duplicating the last value.
+
+So, let's run this. And now we don't need our conditional edge function anymore. Because as you'll see, if we get rid of this line of code, our edges are still properly rendered.
+
+Something important to note is that the value specified in goto, is only checked during runtime, so we need to be careful to match this string with the name of our nodes. Something else is that goto can also be a list of nodes, so this will operate exactly the same way.
+
+And finally, note the return value in the function definition. We've specified that the function will return a command,
+
+with either B, C, or END as a potential value. [00:06:00] This return type annotation doesn't actually affect the operation of the graph, but it does allow the drawing package to create an accurate drawing. So look what happens. If I remove it, our graph will still execute the same, but it is not drawn properly. So I'll add that back.
+
+Now demonstrating this works, I've created a loop that will, on each iteration, take the user's input. It will print that input, and then it will invoke the graph with that input. And only when the user presses Q will we break from this loop. So I'll enter B. It's not happy with that, so I'll enter C doesn't work either.
+
+Finally, I'll enter Q and you can see we've quit. 
+
+What are the takeaways from this lab? Well, when building the graph, [00:07:00] you can add conditional edges using a conditional edge function that receives the graph state and decides the next node. You can also use a command in the return statement of nodes to update both the graph state with update and the control path with goto. Both of these methods are valid, so feel free to use either. 
+
+So some things to try next. I would suggest varying the input string to change the selection path, and also experiment with using add conditional edges as well as the command type to add conditional edges to your graph.
+
+Next up we're going to learn about how you can add memory to your graph to enable long-term persistence using checkpointers.
+
+
+
+=============================================
+File: LCA_LGEssentials_Python_M1_L4_V1_Memory.txt
+=============================================
+
+[00:00:00] 
+
+Caspar: We've seen our nodes execute in a sequence step by step, where at any given step you may have multiple nodes active. For example, in the case of parallel nodes as we just explored in lab three. Well, because of this, as we've learned, we called these steps, super steps. We've learned that state is shared across the graph and is provided to nodes at the start of a super step and is updated by those nodes at the end of a super step.
+
+So now I'll introduce the concept of persistence to preserve your graph state across runs. You can give it memory with a checkpointer. A checkpointer will store the state into more persistent storage at the end of each step, which is essentially taking a snapshot of the state at that point.
+
+A thread is the collection of those checkpoints over time. This is the entire history of the state at each execution step. Let's get into some of the benefits of [00:01:00] using a checkpointer, because there are many. Well, firstly, you can recover gracefully from failures. So if a node fails, you can restore the state and start operation again without losing progress.
+
+Next up, you can actually restore state from a previous point in time. Say you discover that your long running agent has lost its way. Well, it's not a problem, because you can roll back state and restart operation from an earlier point in time back when your agent was healthy. Checkpointing allows you to have a persistent state, and what this means is that state is preserved even when the graph is not running.
+
+And finally, you can restore state at any step. So if a node's execution is suspended. You can pick up execution exactly where you left off.
+
+You'll see this more when we talk about interrupts and human in the loop. But for now, let's jump into lab four and add memory to our graphs.
+
+Okay, welcome to lab four, where we're gonna be trying out memory. So this is actually an extension of [00:02:00] lab three, where we built our conditional edge graph, because we're going to be simply adding a checkpoint to that graph, to persist the state between invocations. You may have noticed from our previous example that when we ran
+
+this for each different loop iteration. The previous value was not persistent in the next invocation of the graph. Well, let's change that. So out of the box, LangGraph offers three checkpointer implementations. There's in-Memory Saver, which stores checkpoint information in memory, and then there's also Postgres Saver and SQL Light Saver, which stores checkpoints in those respective databases.
+
+So in memory saver is the most simple to set up, so I will be using it for this notebook. Simply import it from LangGraph checkpoint memory, and we instantiate it and then configure a thread id. So this dictionary structure with the configurable key is actually how we [00:03:00] pass a configuration into a graph.
+
+So we'll define thread ID with an arbitrary thread ID of one. Run this. And now we just include the checkpointer when compiling the graph. So just like that, the graph has memory. If we go back to the example that we visited in the previous lab, rerun it, I'm gonna enter B and then C, and then B again, and then Q.
+
+And you can see that the state has accumulated between loop iterations. Now we have memory. So this is a short one, but what are the takeaways? Well, when setting up memory, we instantiate a checkpointer. We used in-memory saver here, but there are many options. And then when building a graph, we compile the graph with that checkpointer.
+
+And then during graph execution, we invoke the graph with the thread ID that we set in [00:04:00] the configuration variable. And as long as we use the same thread ID state will be persisted across graph runs. So what to try next? Well, you should run the graph yourself and observe the accumulation of values. See what happens when you use a different thread ID and then revisit an old thread ID later.
+
+So next up we're going to be exploring interrupts and how you can achieve human in the loop.
+
+
+
+=============================================
+File: LCA_LGEssentials_Python_M1_L5_V1_Interrupt.txt
+=============================================
+
+[00:00:00] 
+
+Caspar: This is what we've just been running in the lab. There is a loop where you call the graph and it executes. It returns to the Python runtime and then repeats. So in the conditional branch exercise lab three, we collected input from the users during runtime. But at times, your graph may need to read external input.
+
+And a good example is when you have to have human sign off before running a tool or writing to a database. A human response can take a while, so ideally you'd like operation to suspend while you wait and then resume when the information is supplied. And this is exactly what interrupt is for. Interrupt will pause operation and suspend the graph while waiting, and then continue operation when resuming.
+
+Note that this save and restore operation is made possible by the checkpointer that we just talked about. So let's go ahead and try this out.
+
+Okay, welcome to lab five. Firstly, [00:01:00] congratulations. Give yourself a pat on the back for making it to this lab. I know there's been a lot to absorb, but honestly this is one of my favorite labs. I think interrupts are exceptionally powerful, and the way that LangGraph implements them is very elegant.
+
+So to demonstrate this. We're going to be using this graph that we've seen in the previous two labs. I'm actually in a fresh notebook, so I'm going to have to import modules. I'm going to set up a checkpointer just as I have done previously.
+
+Going to use, the same state. Now, this is where things differ. Node B and node C. Are defined in exactly the same way they are in a previous lab, but node a's definition is slightly different. And let me step you through how. So firstly, I've added this print statement at the beginning of the node so that it's obvious to us whenever node A runs. This is just simply for debugging.
+
+Make a little bit more sense later when we step through the graphs execution. Now the conditional branching logic mostly stays the same. Where we branch [00:02:00] based on the last element in nlist. If it's B, we go to node B. If it's C, we go to node C. If it's Q, we go to end. Now this is where things change.
+
+While before we had a catch all that would send us to end. We now in the case of an illegal value, which I'll write here, we raise an interrupt. Now the interrupt function is imported from LangGraph types. And the way this works is when we encounter this line of code, the graph will halt and will return this message, unexpected input, and then the input, the illegal value.
+
+And then when we resume this graph. The result will be put into this admin variable, which we'll then print. If that resume value is continue, then the next node we go to will be B. Then naturally we'll go to end. Otherwise we go directly to end. And then as we did [00:03:00] before, we return command where we update state and go to whatever next node is set to.
+
+So let me run this cell. Now we build the graph as usual. We add nodes A, B, and C, and then add edges, and then we compile with the checkpointer that we defined earlier.
+
+Okay, let's move down. And we see here's the loop that we've been using in the previous two labs, that takes a user input and provides it to the graph. So if we invoke this graph with an illegal input, then we should hit that interrupt statement. So let's have a look and see what that might look like. So we'll print the result, add an artificial break.
+
+And then run it and I'll enter p. And you can see that this print statement has been hit. Entered a node. But then, the result that has been provided [00:04:00] by the graph also includes an interrupt key. And this stores a list that contains our interrupt that has been raised where the value is the message that was raised.
+
+And there's an ID assigned. So what we really need to do is instruct our graph on how to handle these interrupts. We can do this with a basic implementation of an interrupt handler, and one of those might look like this. I'll remove the break and print. So what we're doing here is if interrupt is included in the result, then we will have a simple print statement.
+
+We will extract the message. This message, just here. We'll print it and then we will prompt the human for an input. And we'll use that input to form a human response, which just uses the command type that we've seen earlier, except you provide a resume property. And this resume is going to be set to [00:05:00] whatever the human specifies in their input.
+
+Then finally, we're going to invoke the graph with this human response and the config that we've been using to invoke it previously. Because remember, it's important that for a graph to have memory, it must be invoked with the same thread ID as previous runs that you want to restore state from. So I'll go ahead and run this.
+
+I am going to enter P again, and now you'll see that we've entered the node. This is the interrupt that's been raised, and we get this message, Unexpected input P. And it's out of frame, but I've been prompted for an input. What I'm going to do is type continue. Because you can see above that if the result of the interrupt
+
+after it's resumed is continue, we're going to go to B. So I'll type continue, and then you can see we've continued, gone to node B,
+
+and this loop has entered a new [00:06:00] iteration. So I'm going to enter Q and quit. And we're going to leave the loop. But great.
+
+So let's have a look at these print statements. You might notice that when we resumed from an interrupt the node replayed from the beginning, 'cause we've printed, Entered a node again. That seems unexpected. Why did that happen? Well, nodes can be large. So during interruption we want to take the node offline, and if we resumed mid node, then we'd need to keep all intermediate state alive. So interrupts replay from the start of the node, and that's the behavior you're seeing here.
+
+You might also ask, won't we hit the interrupt again? Well LangGraph automatically checkpoints responses and supplies them when it encounters an already seen interrupt. So you can have several interrupts in a row and LangGraph will track which interrupt you're on, which I think is pretty neat. And finally,
+
+you might be asking, why is this value a list? A graph can raise multiple interrupts. For example, if two nodes that are executing in parallel both raise an interrupt, then this list will [00:07:00] contain both of them. So what are the key takeaways of this lab? Well, we added an interrupt statement in a node's logic, and to deal with this, we added an interrupt handler.
+
+During execution, we've seen how when an interrupt is invoked, the operation will pause and the graph will return a value in the interrupt field. And then when the graph is invoked with a command containing a resume, a value is provided back to the graph and operation will continue. And we've noted that the node is restarted from the beginning.
+
+So the checkpointer will replay responses to interrupts, which is why this occurs. Next up I'd suggest you try returning more complex data in the resume. Maybe even try adding additional interrupts to confirm the replay behavior.
+
+
+
+=============================================
+File: LCA_LGEssentials_Python_M1_L6_V1_Workflow.txt
+=============================================
+
+[00:00:00] 
+
+Caspar: Okay, welcome to the very final lab in this course. Where we actually get to see how LangGraph can be used to build a production style system. So we're going to be using everything that we've learned, so states, nodes, edges, memory, and interrupts, to build an agent that can ingest raw email data and classify those emails.
+
+Then in parallel, we'll search our internal documentation for answers while creating a bug ticket in our bug tracking system. Then we'll construct a response to the original email sender. And depending on how we've classified that email earlier, we will either request human review on that draft response or send it away immediately.
+
+Without further ado, let's get right into it. So I'm going to import the necessary modules. Now, as always, we need to first define the states for our graph 'cause this will help us define a clear contract for [00:01:00] inputs, intermediates, and outputs.
+
+So to design our agent's schema, I'm just going to work off of the node diagram on the right. I'm going to start with our agent's overarching schema, and I'll just call it email agent state.
+
+So looking at our first node read email, we're probably going to want to store three keys. I just called these email content, which will be a string. The email of the sender themself, which will be a string. And finally a ID for that email, which I've also just stored as a string for now, but in reality might be some form of unique ID.
+
+Now to store the result of our classify intent node. I've created a separate type dictionary schema, because I think that this one is a little bit more complicated and we could do with separating it from our main [00:02:00] email agent state. Nevertheless, I still reference it here. It's just a type email classification where we have the intent trait, which can either be question, bug, billing, feature. Or if it doesn't fit in any of these boxes, the LLM will hopefully assign it the complex intent.
+
+Now, urgency can either be low, medium, high, or critical. The topic can be a string, and the summary can also be a string. And I think that should be enough to accurately classify our emails. Now for our bug tracking node. Hopefully our bug tracking system is handled elsewhere, and all our agent needs to do is query some API. And in this case, all we're going to need to store is a reference to that ticket ID so that we can fetch it later. So I've just stored a single string ticket ID.
+
+To store the results of our search documentation node I've written two properties. So search results can be a list of strings, so this will [00:03:00] presumably store chunks that we've retrieved from our database. Now, customer history is a dictionary where the key will be the customer's email, and then the value can be any search results relating to that customer.
+
+This will be useful so that our LLM has an understanding of what our previous interactions with that customer look like. For example, if a customer has sent an email multiple times, then we will probably want to elevate the urgency. Now finally, for our write response node we need a way of storing the response that our LLM has drafted.
+
+So I'm going to do this in the draft response key. So now we've defined our email agent state. The graph can now store raw email data, classification, search results, ticket IDs, and the drafted response. You'll notice how we don't use the annotated syntax that we saw in some of the previous labs for any of the state keys.
+
+This is because of the way our agent is designed. Its core functionality is just scoped to one email. We don't [00:04:00] really care about previous state, for example, how it classified previous emails or previous drafts that it's written. So there really is no need for a custom reducer like operator add which is what we saw in a previous lab.
+
+We're just happy with the default reducer which simply replaces the state with whatever new value we write to it. So next, we're going to implement node functions for reading, classifying, searching, ticketing, drafting, human review, and sending. Each node will return minimal state updates or a command to route to the next step in the case of these conditional edges.
+
+So I've defined our first node read email. Now in production, this would extract and parse email content using some application logic. But for the sake of this walkthrough, I just pass here because we're going to be passing in the email result directly to the agent, so it won't have to extract these fields [00:05:00] itself.
+
+So next I've defined our classify intent node. So you'll see here that we first create a structured LLM. Now, we created an LLM earlier using LangChain's Chat OpenAI chat model. But we also apply with structured output. And what this does is it automates the process of binding a schema to a model and parsing the output so that it fits that schema.
+
+So in this case, we pass through our email classification schema, and then the [00:06:00] model is essentially told that it needs to respond in this email classification format. So it will provide a dictionary with an intent key, urgency key, topic, key and summary key that should abide by these constraints that we've defined above.
+
+So we've next defined a classification prompt that provides an email, the sender email, and the content of that email, excuse the order. Then it instructs the LLM to provide a classification including these main keys, which it should include anyway. But it's always good to be very well defined in your instructions when asking an LLM to perform a task that is somewhat complicated.
+
+And finally, we're going to get that result by invoking the model with our classification prompt. And then we're going to return a state update where classification, which if you recall, is defined here in email agent state, is set to the result of that LLM call.[00:07:00] 
+
+So next up, I've implemented our search documentation node, and this node searches our internal knowledge base for relevant information and then returns it as a state update. So to do this, we fetch our classification result from the state, which would've been set by the previous node. Then we build a query, which you know, for the purpose of this example includes the intent for the classification and the topic.
+
+Now, here, you'd actually implement your application search logic, but I'm just returning three arbitrary search results. Now I've wrapped this all in a try accept. And this is because you want your [00:08:00] agent to be robust. Your agent might run for a long time, and so you don't want an error to cause it to crash.
+
+You want it to be able to recover from errors. And the way you can do this is by capturing the error as a string and then returning it in the search results. So that when your LLM goes to provide a response using those search results, it sees that there was an error fetching from the database or wherever you retrieve those results from. And then potentially you can code some logic to reroute back to that search documentation node and retry.
+
+But in summary, it's always good to handle errors like this whenever possible.
+
+Next up I've created our bug tracking node, which is very simple as well. Ordinarily, in a production system, this would just call some bug tracking API, which would likely [00:09:00] return a ticket that your agent can then store to reference this bug ticket, instead of dealing with the creation and management of that ticket directly.
+
+So, separation of concerns here in this case, all we do is generate an arbitrary UUID that would in production be generated by an API and then store that in our agent state.[00:10:00] 
+
+I've just finished writing the write response node. Now let me step through it. So we take in a state but instead of returning a state update, you'll see that we return a command that is either human review or send reply. And if you recall, this is so that our drawing library knows that there is a conditional edge from write response to either human review or send reply, so it's able to render those correctly.
+
+Now, this doesn't actually affect the way that the graph executes, but you'll see later when we display the graph it's necessary to properly render these edges. So we next fetch the classification from the state as well as search results and the customer history. And we build this [00:11:00] context sections list just by joining the raw search results in customer history with new lines.
+
+So it's formatted as a list of doc points. Now we do this so that our LLM has access to the full scope of the context and is able to form a response that is informed. So then we build our draft prompt. So you see we include the email intent and the urgency level where if these can't be fetched, they haven't been set for some reason in the agent state, then they're defaulted to acceptable values.
+
+Now. I'll just touch on this very quickly. It's important to build your agent so that it is resilient. So in the case where like these values aren't set, then the LLM isn't confused. Unknown for email intent is much clearer than an empty string. Urgency level, medium is also much clearer than an empty string. Because if it's not set, the LLM is not going to know what to do, and your results are going to be far more unpredictable.
+
+Anyway, so moving forward, we join these context [00:12:00] sections with a new line character, and we give the LLM some guidelines. So then finally we invoke the LLM that we defined earlier with this draft prompt, and then we determine whether a human review is needed.
+
+Here is where we decide whether we route to this node here, human review or directly to send reply. And we do this by looking at the state and seeing if the urgency is high or critical, or if earlier on when we classify the email, if the classification couldn't be fit into one of those categories and was instead set to be complex.
+
+Now this is arbitrary, but this is an example of a flexible agent where human review might be desirable, not just for emails of high urgency, but also where your LLM receives an input that is outside of the boundaries of the data that you would traditionally expect to receive. So then if the review is needed, we route directly to human review using the goto statement, where we return a command where goto is set to human review. Otherwise, [00:13:00] we route directly to send reply. And note, we also have the update key here because using a command you can update the state as well as routing to a new node directly.
+
+I just finished up writing our human review node. Now this node takes in state and then returns a command that either goes to end or send reply. Now, made a little spelling error here. Should be literal, and also end is a constant imported from LangGraph types, so we shouldn't wrap it in quotation marks.
+
+This node pauses the graph and awaits a human review. We use Interrupt to do that. Then based on the resume value, we route to either end or send reply. So I've added a little note here that interrupts must come first. Maybe it should say interrupt should come first because your graphs will [00:14:00] still work if they come at the end of the node.
+
+But any code before interrupt will re-execute when that node is resumed. So to prevent unnecessary code re-execution, you can just package in your interrupts at the very start of a node which is exactly what I've done here. Now I've tried to make this interrupt as detailed as possible, so the human has all the information that they need to provide a judgment.
+
+So it includes the original email ID, the original email itself, the response that the LLM has drafted, the urgency of that email, the intent of that email, and an action. So this is asking the human to review and approve or edit this response. So then when a resume is provided, as we've seen, we will progress beyond this
+
+interrupt. It'll be resolved. We'll get to this if statement. And if this resume contains approved, then we return a command that firstly updates the state. So the draft response property of our state is set. To the edited response if one has been provided by the human, and if not, just the original draft [00:15:00] response that was created by our LLM.
+
+And then we go to send reply to send an email directly. If the human doesn't approve it, then we don't update state and we go to end. We've now defined all of these nodes that you can see on the right, and we're ready to go on to build our graph.
+
+So first, as we know, we instantiate StateGraph with our email agent state.
+
+I've now added all of the nodes that we've defined above.
+
+I've now defined our static [00:16:00] edges. You can see we have our parallel paths here, and note that we haven't defined our edges that are specified with our command return types. This is because they're generated dynamically.
+
+So if you recall from our previous lab, we used the in-memory saver checkpointer, instantiate it here and compile our graph with this checkpointer passed in. And then just like that, we have built our graph. What I can do is use our drawing library to display this graph, make sure everything looks correct.
+
+So you can see that our bug tracking node isn't properly attached. And that's because I haven't added. An edge here.[00:17:00] 
+
+So if we rebuild our graph and display, voila, this is the graph that we see on the right.
+
+We've defined all of our node logic and we've compiled our graph. Now, I think it's time that we test our agent with some real values. So if we scroll down, we'll see this test that I've pre-written. Now here we simulate a urgent billing issue where the user was charged twice for their subscription. We
+
+run our agent with a thread ID for persistence and if everything is successful, hopefully we should categorize this email as one that is urgent and needs human review. We scroll back up to our write response node. We see that I've added a print statement where if the email needs review, we will print out, Needs approval.
+
+Then we'll route to our human review node and interrupt the graph. So if we scroll back down, we'll see that the agent has [00:18:00] successfully identified this email as one that needs human approval before we send our response out. So scrolling down. The graph is currently interrupted. We can visualize this with this print statement that prints the first 60 characters of the response that our LLM has drafted.
+
+And then we're going to resume this response by invoking the graph with a command where resume is a dictionary where approved is true, because this is what we look out for above in our human interrupt node. See if human decision dot get approved, then we return a command routing directly to send reply. And then just like that, the email is sent successfully. So scrolling down to the end of our notebook, we have one final test, which is a batch test.
+
+Here we process five varied emails with unique thread IDs. We then collect runs that pause for approval into this list here, needs approval. But I'll let you run this yourself, in the sake of keeping this tutorial [00:19:00] a desirable length because at that we mark the end of our final lab. And I really hope that you've enjoyed all of the labs and this end-to-end walkthrough because we've truly built something really cool here. In just a few lines of code, we've created an agent that can accomplish a task that would've been exceptionally difficult to accomplish with conventional software just a few years ago.
+
+So what's next? Well, go download the source files. And see what you can build. Happy experimenting. It was a pleasure to teach you LangGraph.

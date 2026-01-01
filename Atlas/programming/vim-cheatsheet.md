@@ -1,11 +1,11 @@
 ---
 related:
   - "[[Programming]]"
+  - "[[references]]"
+  - "[[cheatsheet]]"
 created: 2025-12-27
 ---
 # vim cheat sheet
-
-[[cheatsheet]] [[references]]
 
 ## Mode
 
