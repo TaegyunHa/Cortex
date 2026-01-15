@@ -99,3 +99,29 @@ Remove worktree
 git worktree remove [-f] <worktree>
 ```
 
+## branch
+
+Create a new branch
+```bash
+git branch <branch-name>
+```
+
+Delete a branch
+```bash
+git branch -d <branch-name> # (1)
+git branch -d -r <branch-name> <remote-branch-name> # (2)
+git branch -D <branch-name> # (3)
+```
+1. delete `<branch-name>`
+2. delete the remote-tracking branch `<remote-branch-name>`
+3. delete the `<branch-name>` even if it has not been merged into other branch
+
+Switch to the new branch
+```bash
+git switch <branch-name>
+```
+
+Create and switch to a new branch
+```bash
+git checkout -b <branch-name>
+```
