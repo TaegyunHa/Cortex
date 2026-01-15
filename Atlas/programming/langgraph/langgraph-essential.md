@@ -1,8 +1,9 @@
 ---
-parent:
+parent: "[[LangGraph]]"
 related:
   - "[[Programming]]"
   - "[[AI]]"
+  - "[[LangGraph]]"
 created: 2026-01-01
 tags:
 ---

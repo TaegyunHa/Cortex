@@ -8,20 +8,49 @@
         "type": "tabs",
         "children": [
           {
-            "id": "e76566650145dee6",
+            "id": "e0a9228515270012",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "+/init.md",
+                "file": "Atlas/programming/graphics/rendering-pipeline.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "init"
+              "title": "rendering-pipeline"
+            }
+          },
+          {
+            "id": "2658e60e5a016d1b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Atlas/programming/graphics/transformation.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "transformation"
+            }
+          },
+          {
+            "id": "92dbcd1993f0ec23",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Atlas/Map/Graphics.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Graphics"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -156,13 +185,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "+/init.md",
+                "file": "Atlas/programming/regex-reference.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of init"
+              "title": "Outline of regex-reference"
             }
           }
         ],
@@ -170,7 +199,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -183,46 +213,49 @@
       "bases:Create new base": false
     }
   },
-  "active": "e76566650145dee6",
+  "active": "2658e60e5a016d1b",
   "lastOpenFiles": [
+    "Atlas/programming/graphics/rendering-pipeline.md",
+    "Atlas/programming/graphics/transformation.md",
+    "Atlas/programming/langgraph/langgraph-deep-agent.md",
+    "Atlas/Map/Graphics.md",
+    "+/Untitled 1.md",
+    "Atlas/programming/graphics",
+    "Atlas/programming/langgraph/langgraph-essential.md",
+    "x/attachments/inject_state_diagram.png",
+    "x/attachments/agent_header.png",
+    "x/attachments/langgraph-memory.png",
+    "x/attachments/agent_sequence_diagram.png",
+    "x/transcripts.md",
+    "Atlas/programming/python-reference.md",
+    "Atlas/Map/LangGraph.md",
+    "x/bases/LangGraph.base",
+    "Atlas/Map/Learning.md",
+    "x/bases/Learning.base",
+    "x/bases",
+    "Atlas/programming/regex-reference.md",
+    "Atlas/programming/uv-reference.md",
+    "x/templates/template-base.md",
+    "x/templates/template-base-parent.md",
+    "Atlas/programming/tmux-cheatsheet.md",
+    "+/init.md",
     "Atlas/programming/windows-reference.md",
     "Atlas/programming/vim-cheatsheet.md",
     "Atlas/programming/tools.md",
-    "Atlas/programming/tmux-cheatsheet.md",
-    "Atlas/programming/regex-reference.md",
     "Atlas/programming/linux-reference.md",
     "Atlas/programming/git-reference.md",
     "Atlas/programming/claude-code-reference.md",
-    "x/templates/template-base.md",
-    "+/init.md",
-    "Atlas/programming/langgraph/langgraph-essential.md",
     "Atlas/programming/langgraph/langgraph-example-email-agent.md",
     "Atlas/programming/langgraph/langgraph-example-edge.md",
     "Atlas/programming/langgraph/langgraph-example-memory.md",
     "Atlas/programming/langgraph/langgraph-example-interrupt.md",
-    "Atlas/programming/langgraph/langgraph-example-conditional-edge.md",
-    "Atlas/Map/code-example.md",
-    "Atlas/Map/AI.md",
-    "x/prompts/summary-instruction.md",
     "x/prompts",
-    "Atlas/programming/langgraph/summary.md",
-    "Atlas/Map/Programming.md",
-    "x/attachments/langgraph-memory.png",
     "x/attachments",
-    "Atlas/Map/PC.md",
-    "Atlas/Map/New.md",
     "Atlas/Map",
     "Atlas",
     "x/templates",
-    "Untitled.md",
     "x",
-    "+",
     "Untitled.canvas",
-    "2025-12-26.md",
-    "Untitled.base",
-    "programming/tmux.md",
-    "Atlas/programming",
-    "books",
     "Untitled 1.canvas"
   ]
 }
