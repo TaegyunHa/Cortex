@@ -8,49 +8,20 @@
         "type": "tabs",
         "children": [
           {
-            "id": "e0a9228515270012",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Atlas/programming/graphics/rendering-pipeline.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "rendering-pipeline"
-            }
-          },
-          {
-            "id": "2658e60e5a016d1b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Atlas/programming/graphics/transformation.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "transformation"
-            }
-          },
-          {
             "id": "92dbcd1993f0ec23",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Atlas/Map/Graphics.md",
+                "file": "Atlas/programming/git-reference.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Graphics"
+              "title": "git-reference"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -107,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 311.5
+    "width": 311.5,
+    "collapsed": true
   },
   "right": {
     "id": "f63985df27c81d20",
@@ -213,12 +185,13 @@
       "bases:Create new base": false
     }
   },
-  "active": "2658e60e5a016d1b",
+  "active": "92dbcd1993f0ec23",
   "lastOpenFiles": [
-    "Atlas/programming/graphics/rendering-pipeline.md",
-    "Atlas/programming/graphics/transformation.md",
+    "Atlas/programming/git-reference.md",
     "Atlas/programming/langgraph/langgraph-deep-agent.md",
     "Atlas/Map/Graphics.md",
+    "Atlas/programming/graphics/rendering-pipeline.md",
+    "Atlas/programming/graphics/transformation.md",
     "+/Untitled 1.md",
     "Atlas/programming/graphics",
     "Atlas/programming/langgraph/langgraph-essential.md",
@@ -243,7 +216,6 @@
     "Atlas/programming/vim-cheatsheet.md",
     "Atlas/programming/tools.md",
     "Atlas/programming/linux-reference.md",
-    "Atlas/programming/git-reference.md",
     "Atlas/programming/claude-code-reference.md",
     "Atlas/programming/langgraph/langgraph-example-email-agent.md",
     "Atlas/programming/langgraph/langgraph-example-edge.md",

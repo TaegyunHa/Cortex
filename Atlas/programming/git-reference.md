@@ -125,3 +125,12 @@ Create and switch to a new branch
 ```bash
 git checkout -b <branch-name>
 ```
+
+## Config
+
+### autoSetupRemote
+If `push.autoSetupRemote` configuration option is set, `git push` will automatically set the upstream the first time you push a branch.
+
+```bash
+git config --global push.autoSetupRemote true
+```

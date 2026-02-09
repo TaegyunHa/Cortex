@@ -18,6 +18,24 @@ An agent consists of an LLM calling tools in a loop:
 1. **Reasoning**: The LLM decides which tool to call
 2. **Acting**: The tool is invoked
 3. **Observing**: The LLM receives tool feedback and continues
+#### Diagram
+```mermaid
+---
+config:
+  flowchart:
+    curve: linear
+---
+graph TD
+    input([input])
+    model{model}
+    tools[tools]
+    output([output])
+    
+    input --> model
+    model -->|action| tools
+    tools -->|observation| model
+    model -->|finish| output
+```
 
 ### Architecture
 - **Agent Node**: Calls the LLM to decide next action
@@ -62,14 +80,14 @@ from langchain.agents import create_agent
 from langchain.chat_models import init_chat_model
 from langchain_core.tools import tool
 
-# Define a tool
+# Define a tool ------------------------
 @tool
 def calculator(operation: str, a: float, b: float) -> float:
     """Performs arithmetic operations"""
     # Implementation
     return result
 
-# Create agent
+# Create agent -------------------------
 model = init_chat_model(model="openai:gpt-4o-mini", temperature=0.0)
 tools = [calculator]
 
@@ -79,7 +97,7 @@ agent = create_agent(
     system_prompt="YOUR PROMPT",
 )
 
-# Invoke agent
+# Invoke agent -------------------------
 result = agent.invoke({
     "messages": [{"role": "user", "content": "What is 3.1 * 4.2?"}]
 })

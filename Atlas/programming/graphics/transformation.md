@@ -5,6 +5,8 @@ related:
 created: 2026-01-14
 tags:
 ---
+# Transformation Overview
+
 ```mermaid
 flowchart LR
     A(Vertex Data)
@@ -119,3 +121,15 @@ z_{w}\\
 \dfrac{f-2}{2}z_{norm} + \dfrac{(f+n)}{2}\\
 \end{pmatrix}
 $$
+
+# Transformation Matrix
+
+Typically 4x4 matrix is used for transformations.
+
+## Model View Matrix
+Model view matrix combines viewing matrix and model matrix into one matrix.
+In order to transform the view (camera), whole scene needs to be moved with inverse transformation.
+
+## Projection Matrix
+The projection matrix defines the frustum of camera. The frustum determines which objects or portions of objects will be clipped out. Typically there are two projection, **frustum** and **orthographic**. The frustum is used to produce a perspective projection, and orthographic is used to produce a orthographic (parallel) projection.
+They need 6 parameters to specify 6 clipping planes; left, right, bottom, top, near and far planes.
