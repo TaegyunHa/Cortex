@@ -24,15 +24,18 @@ acli jira workitem create --project DEV --type Subtask --summary "Update tests" 
 ```
 
 #### Key Options
-- `-p, --project` - Project key (required)
-- `-t, --type` - Work item type (e.g., Task, Bug, Story)
-- `-s, --summary` - Work item summary (required)
-- `-a, --assignee` - Assignee email or '@me' for self-assign
-- `-d, --description` - Description in plain text or ADF
-- `--parent` - Parent work item key for subtasks
-- `--label` - Add labels to the work item
-- `--from-json` - Create from JSON file for bulk creation
-- `--json` - Output created work item as JSON
+
+| Option | Description |
+|--------|-------------|
+| `-p, --project` | Project key (required) |
+| `-t, --type` | Work item type (e.g., Task, Bug, Story) |
+| `-s, --summary` | Work item summary (required) |
+| `-a, --assignee` | Assignee email or '@me' for self-assign |
+| `-d, --description` | Description in plain text or ADF |
+| `--parent` | Parent work item key for subtasks |
+| `--label` | Add labels to the work item |
+| `--from-json` | Create from JSON file for bulk creation |
+| `--json` | Output created work item as JSON |
 
 ### Edit Work Items
 
@@ -59,25 +62,25 @@ acli jira workitem edit --from-json updates.json
 
 #### Options
 
-```
--a, --assignee string           Assign work item with email or account ID. Use '@me' to self-assign, 'default' to assign to the project's default assignee
--d, --description string        Edit the description in plain text or Atlassian Document Format (ADF)
-  --description-file string   Read the description in plain text or Atlassian Document Format (ADF) from the file
-  --filter string             Filter ID of work items to be edited
-  --from-json string          Read the work item definition from a JSON file
-  --generate-json             Generates a JSON file that could be used for work item editing
--h, --help                      Show help for command
-  --ignore-errors             Ignore the errors and continue
-  --jql string                JQL query for work items to be edited
-  --json                      Generate a JSON output
--k, --key string                A list of work item keys to be edited
--l, --labels string             Edit the labels
-  --remove-assignee           Remove the assignee
-  --remove-labels string      Remove the labels
--s, --summary string            Edit the summary
--t, --type string               Edit the work item type
--y, --yes                       Confirm edit without prompting
-```
+| Option | Description |
+|--------|-------------|
+| `-a, --assignee string` | Assign work item with email or account ID. Use '@me' to self-assign, 'default' to assign to the project's default assignee |
+| `-d, --description string` | Edit the description in plain text or Atlassian Document Format (ADF) |
+| `--description-file string` | Read the description in plain text or Atlassian Document Format (ADF) from the file |
+| `--filter string` | Filter ID of work items to be edited |
+| `--from-json string` | Read the work item definition from a JSON file |
+| `--generate-json` | Generates a JSON file that could be used for work item editing |
+| `-h, --help` | Show help for command |
+| `--ignore-errors` | Ignore the errors and continue |
+| `--jql string` | JQL query for work items to be edited |
+| `--json` | Generate a JSON output |
+| `-k, --key string` | A list of work item keys to be edited |
+| `-l, --labels string` | Edit the labels |
+| `--remove-assignee` | Remove the assignee |
+| `--remove-labels string` | Remove the labels |
+| `-s, --summary string` | Edit the summary |
+| `-t, --type string` | Edit the work item type |
+| `-y, --yes` | Confirm edit without prompting |
 
 ### Link Work Items
 
@@ -136,13 +139,16 @@ acli jira workitem transition --jql "fixVersion = '2.0'" \
 ```
 
 #### Key Options
-- `-k, --key` - Work item key(s) to transition
-- `--jql` - JQL query to select work items
-- `--filter` - Filter ID to select work items
-- `-s, --status` - Target status name
-- `-y, --yes` - Skip confirmation prompt
-- `--ignore-errors` - Continue on errors in bulk operations
-- `--json` - Output results as JSON
+
+| Option | Description |
+|--------|-------------|
+| `-k, --key` | Work item key(s) to transition |
+| `--jql` | JQL query to select work items |
+| `--filter` | Filter ID to select work items |
+| `-s, --status` | Target status name |
+| `-y, --yes` | Skip confirmation prompt |
+| `--ignore-errors` | Continue on errors in bulk operations |
+| `--json` | Output results as JSON |
 
 ### View Work Items
 
@@ -167,8 +173,11 @@ acli jira workitem view --key "DEV-123,DEV-456,DEV-789"
 ```
 
 #### Key Options
-- `-k, --key` - Work item key(s) to view (comma-separated for multiple)
-- `--fields` - Comma-separated list of fields to display
-- `--json` - Output as JSON for machine processing
-- `--web` - Open work item in web browser
-- `--verbose` - Show all available fields
+
+| Option | Description |
+|--------|-------------|
+| `-k, --key` | Work item key(s) to view (comma-separated for multiple) |
+| `--fields` | Comma-separated list of fields to display |
+| `--json` | Output as JSON for machine processing |
+| `--web` | Open work item in web browser |
+| `--verbose` | Show all available fields |
