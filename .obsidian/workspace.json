@@ -20,8 +20,23 @@
               "icon": "lucide-file",
               "title": "git-reference"
             }
+          },
+          {
+            "id": "591f48674504dd9a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Atlas/programming/Jira.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Jira"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -185,9 +200,10 @@
       "bases:Create new base": false
     }
   },
-  "active": "92dbcd1993f0ec23",
+  "active": "591f48674504dd9a",
   "lastOpenFiles": [
     "Atlas/programming/git-reference.md",
+    "Atlas/programming/Jira.md",
     "Atlas/programming/langgraph/langgraph-deep-agent.md",
     "Atlas/Map/Graphics.md",
     "Atlas/programming/graphics/rendering-pipeline.md",
@@ -220,7 +236,6 @@
     "Atlas/programming/langgraph/langgraph-example-email-agent.md",
     "Atlas/programming/langgraph/langgraph-example-edge.md",
     "Atlas/programming/langgraph/langgraph-example-memory.md",
-    "Atlas/programming/langgraph/langgraph-example-interrupt.md",
     "x/prompts",
     "x/attachments",
     "Atlas/Map",
