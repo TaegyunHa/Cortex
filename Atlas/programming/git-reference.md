@@ -87,6 +87,11 @@ git worktree add <path>
 
 - Creates a new branch whose name is the final component of `<path>`
 
+Add worktree tag
+```bash
+git worktree add <path> <tag-name>
+```
+
 Add worktree branch
 
 ```bash

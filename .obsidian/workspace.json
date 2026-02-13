@@ -35,8 +35,7 @@
               "title": "Jira"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -200,10 +199,10 @@
       "bases:Create new base": false
     }
   },
-  "active": "591f48674504dd9a",
+  "active": "92dbcd1993f0ec23",
   "lastOpenFiles": [
-    "Atlas/programming/git-reference.md",
     "Atlas/programming/Jira.md",
+    "Atlas/programming/git-reference.md",
     "Atlas/programming/langgraph/langgraph-deep-agent.md",
     "Atlas/Map/Graphics.md",
     "Atlas/programming/graphics/rendering-pipeline.md",
