@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Atlas/programming/git-reference.md",
+                "file": "Atlas/programming/nvim-configuration.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "git-reference"
+              "title": "nvim-configuration"
             }
           },
           {
@@ -201,8 +201,8 @@
   },
   "active": "92dbcd1993f0ec23",
   "lastOpenFiles": [
-    "Atlas/programming/Jira.md",
     "Atlas/programming/git-reference.md",
+    "Atlas/programming/Jira.md",
     "Atlas/programming/langgraph/langgraph-deep-agent.md",
     "Atlas/Map/Graphics.md",
     "Atlas/programming/graphics/rendering-pipeline.md",
